@@ -29,7 +29,7 @@ public class EmployeeController {
 
     @DeleteMapping("/delete-emp/{id}")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public String deleteEmployee(@PathVariable Long id) {
+    public String deleteEmployee(@PathVariable String id) {
         service.removeEmployee(id);
         return "Deleted";
 
@@ -41,7 +41,7 @@ public class EmployeeController {
     }
     
     @GetMapping("fing-by-id/{id}")
-    public Employee findById(@PathVariable Long id){
+    public Employee findById(@PathVariable String id){
 
          return service.findById(id);
     }

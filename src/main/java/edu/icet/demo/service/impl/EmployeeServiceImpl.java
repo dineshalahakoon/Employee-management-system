@@ -43,7 +43,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public void removeEmployee(Long Id) {
+    public void removeEmployee(String Id) {
 
         if (repository.existsById(Id))
         {
@@ -58,7 +58,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public Employee findById(Long id) {
+    public Employee findById(String id) {
         if(repository.findById(id).isPresent()){
             Optional<EmployeeEntity> byId = repository.findById(id);
             return new ObjectMapper().convertValue(byId.get(), Employee.class);

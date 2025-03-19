@@ -1,4 +1,4 @@
-package edu.icet.demo.service;
+package edu.icet.demo.repository;
 
 import edu.icet.demo.Entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;

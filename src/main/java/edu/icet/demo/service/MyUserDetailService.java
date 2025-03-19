@@ -1,6 +1,7 @@
 package edu.icet.demo.service;
 
 import edu.icet.demo.model.User;
+import edu.icet.demo.repository.UserRepository;
 import edu.icet.demo.securiryModel.UserPrinciple;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;

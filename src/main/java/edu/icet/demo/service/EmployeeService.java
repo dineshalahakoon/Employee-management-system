@@ -9,11 +9,11 @@ public interface EmployeeService {
 
     List<Employee> getall();
 
-    void removeEmployee(Long productId);
+    void removeEmployee(String productId);
 
     void updateEmployee(Employee employee);
 
-    Employee findById(Long id);
+    Employee findById(String id);
 
     Employee findByfristName(String fristName);
 }
