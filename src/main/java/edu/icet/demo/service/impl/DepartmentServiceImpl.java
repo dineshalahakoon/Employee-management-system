@@ -6,6 +6,7 @@ import edu.icet.demo.model.Department;
 import edu.icet.demo.repository.DepartmentRepository;
 import edu.icet.demo.service.DepartmentService;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -16,9 +17,11 @@ import java.util.List;
 public class DepartmentServiceImpl implements DepartmentService {
 
     final DepartmentRepository repository;
+    final ModelMapper mapper;
+
     @Override
     public void addDepartment(Department department) {
-        repository.save(new ObjectMapper().convertValue(department, DepartmentEntity.class));
+        repository.save(mapper.map(department, DepartmentEntity.class));
 
     }
 
@@ -26,7 +29,7 @@ public class DepartmentServiceImpl implements DepartmentService {
     public List<Department> getAllDepartment() {
         List<Department> DepartmentList = new ArrayList<>();
         repository.findAll().forEach(obj ->{
-            DepartmentList.add(new ObjectMapper().convertValue(obj, Department.class));
+            DepartmentList.add(mapper.map(obj, Department.class));
         });
         return DepartmentList;
     }

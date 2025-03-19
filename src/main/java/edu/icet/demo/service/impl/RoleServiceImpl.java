@@ -6,6 +6,7 @@ import edu.icet.demo.model.Role;
 import edu.icet.demo.repository.RoleRepository;
 import edu.icet.demo.service.RoleService;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -15,19 +16,19 @@ import java.util.List;
 @RequiredArgsConstructor
 public class RoleServiceImpl implements RoleService {
     final RoleRepository repository;
-//    final ModelMapper mapper;
+    final ModelMapper mapper;
 
     @Override
     public void addRole(Role role) {
 
-        repository.save(new ObjectMapper().convertValue(role, RoleEntity.class));
+        repository.save(mapper.map(role, RoleEntity.class));
     }
 
     @Override
     public List<Role> getall() {
         List<Role> RoleList = new ArrayList<>();
         repository.findAll().forEach(obj ->{
-            RoleList.add(new ObjectMapper().convertValue(obj, Role.class));
+            RoleList.add(mapper.map(obj, Role.class));
                  });
         return RoleList;
         }
