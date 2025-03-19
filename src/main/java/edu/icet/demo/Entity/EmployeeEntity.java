@@ -31,7 +31,7 @@ public class EmployeeEntity {
 
     @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
     @JsonManagedReference
-    private List<DepartmentEntity> department;
+    private List<DepartmentEntity> departmentlist;
 
     /*
    {

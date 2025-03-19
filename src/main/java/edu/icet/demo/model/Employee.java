@@ -17,5 +17,5 @@ public class Employee {
     private String lastName;
     private String email;
     private Role role;
-    private List<Department> department;
+    private List<Department> departmentlist;
 }
