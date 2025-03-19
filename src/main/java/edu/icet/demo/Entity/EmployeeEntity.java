@@ -1,10 +1,13 @@
 package edu.icet.demo.Entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -19,7 +22,52 @@ public class EmployeeEntity {
     private String fristName;
     private String lastName;
     private String email;
-    private String departmentId;
-    private String roleId;
+
+
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "role_id", referencedColumnName = "id")
+    private RoleEntity role;
+
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private List<DepartmentEntity> department;
+
+    /*
+   {
+    "fristName":"saman,
+    "lastName":"kumara",
+    "email":"nene",
+    "departmentId":"005",
+    "role": {
+    "description":"Hr",
+    "name":"manager"
+    }
+
+"department":[
+{
+"name":"Human Resource",
+"description":"handel employee relations"
+"employee":{
+    "id":1
+    }
+},
+
+{
+"name":"Finance",
+"description":"manage finance"
+"employee":{
+    "id":2
+    }
+
+
+    }
+]
+
+ }
+
+
+
+    */
 
 }

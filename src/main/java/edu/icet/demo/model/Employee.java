@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Setter
 @Getter
 @AllArgsConstructor
@@ -14,6 +16,6 @@ public class Employee {
     private String fristName;
     private String lastName;
     private String email;
-    private String departmentId;
-    private String roleId;
+    private Role role;
+    private List<Department> department;
 }
