@@ -7,10 +7,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@CrossOrigin
 @RestController
 @RequestMapping("/emp-controller")
-@CrossOrigin
+
 @RequiredArgsConstructor
 public class EmployeeController {
     final EmployeeService service;
